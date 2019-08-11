@@ -43,6 +43,10 @@ trait Transable
         static::retrieved(function (Model $model) {
             return $model->retrieveTranslations();
         });
+
+        static::deleted(function (Model $model) {
+            return $model->deleteTranslations();
+        });
     }
 
     abstract function transable (): array;
@@ -167,5 +171,11 @@ trait Transable
         }
 
         return $this;
+    }
+
+    public function deleteTranslations ()
+    {
+        $translations = array_column($this->translations()->get('id')->toArray(), 'id');
+        I18n::destroy($translations);
     }
 }
