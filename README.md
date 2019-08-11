@@ -125,6 +125,22 @@ $post = App\Post::where('title', 'Hello')->first();
 echo $post->title; // return "Salut"
 ```
 
+finder
+```php
+App\Post::translated(); // retrieve all post translated
+App\Post::doesntHaveTranslations(); // retrieve all post without translations
+
+App\Post::whereTranslation($field, $value); // return matched post
+```
+
+deleting
+```php
+$post->delete(); // delete post and all translations
+App\Post::deleteTranslationsWhenEmptyModel(); delete all translations without model
+// OR 
+Fredckl\Transable\Models\I18n::deleteEmpty(); 
+```
+
 This project is being tested. It is not advisable to use it in production.
 All suggestions are welcome as well as contributions.
 
