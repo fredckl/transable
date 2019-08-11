@@ -178,4 +178,9 @@ trait Transable
         $translations = array_column($this->translations()->get('id')->toArray(), 'id');
         I18n::destroy($translations);
     }
+
+    public static function deleteTranslationsWhenEmptyModel()
+    {
+        I18n::deleteEmpty();
+    }
 }
