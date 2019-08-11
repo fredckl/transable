@@ -38,10 +38,10 @@ define your languages translatable in your transable.php
 return [
     "default_locale" => "en", // Change if you your default locale is different
     "locales" => [
-    "fr",
-    "es",
-    /// ...
-]
+        "fr",
+        "es",
+        /// ...
+    ]
 ];
 ```
 
