@@ -98,7 +98,7 @@ trait Transable
         return $this;
     }
 
-    protected function getTranslation(string $locale)
+    protected function getTranslation(?string $locale = null)
     {
         $locale = $locale ?? static::$autoload;
         $fields = $this->transable();
@@ -154,23 +154,18 @@ trait Transable
             return $this[$name];
 
         } elseif (isset($this[$name])) {
-            if (static::$autoload && isset($this[static::$autoload]->$name)) {
-                return $this[static::$autoload]->$name;
+            if (static::$autoload) {
+                if (!isset($this->{static::$autoload}->$name)) {
+                    $this->getTranslation();
+                }
+
+                if (!empty($this->{static::$autoload}->$name)) {
+                    return $this->{static::$autoload}->$name;
+                }
             }
             return  $this[$name];
         }
 
-
-
         return $this;
     }
-//    public function __get ($name)
-//    {
-//        if (static::$autoload && isset($this[static::$autoload]->$name)) {
-//            return $this->{static::$autoload}->$name;
-//        } elseif (isset($this[$name])) {
-//            return  $this[$name];
-//        }
-//        return null;
-//    }
 }
