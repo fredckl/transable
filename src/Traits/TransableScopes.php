@@ -41,4 +41,14 @@ trait TransableScopes
     {
         return $query->has('translations');
     }
+
+    public function scopeDoesntHaveTranslations (Builder $query)
+    {
+        return $query->doesntHave('translations');
+    }
+
+    public function scopeDeleteTranslationsWhenEmptyModel(Builder $query, string $locale)
+    {
+
+    }
 }
