@@ -127,10 +127,10 @@ echo $post->title; // return "Salut"
 
 finder
 ```php
-App\Post::translated(); // retrieve all post translated
-App\Post::doesntHaveTranslations(); // retrieve all post without translations
+App\Post::translated(); // retrieve all posts translated
+App\Post::doesntHaveTranslations(); // retrieve all posts without translations
 
-App\Post::whereTranslation($field, $value); // return matched post
+App\Post::whereTranslation($field, $value); // return matched posts
 ```
 
 deleting
