@@ -1,0 +1,19 @@
+{
+    "name": "fredckl/transable",
+    "description": "Translater tables",
+    "type": "laravel-plugin",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Frederic KOLLER",
+            "email": "koller.f@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Fredckl\\Transable": "src/"
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {}
+}
